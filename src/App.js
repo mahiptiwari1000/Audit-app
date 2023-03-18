@@ -6,6 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import UserDashboard from './pages/dashboard/UserDashboard';
+import NewEntry from './pages/dashboard/NewEntry';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/user-dashboard" element={<UserDashboard/>} />
+        <Route path="/new-entry" element={<NewEntry/>} />
         </Routes>
       </BrowserRouter>
     </div>

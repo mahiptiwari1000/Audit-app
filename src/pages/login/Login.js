@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './styles/loginStyles.module.css';
 import { useNavigate } from "react-router-dom";
-import { BallTriangle } from 'react-loader-spinner'
+import { BallTriangle } from 'react-loader-spinner';
+import Button from '../../components/Button';
 
 const Login = () => {
     const [userEmail, setUserEmail] = useState('');
@@ -42,7 +43,7 @@ const Login = () => {
                     <input type="text" value={userEmail} placeholder="Enter your email" onChange={(e) => setUserEmail(e.target.value)} />
                     <h3 className={styles.fieldTitle}>Password</h3>
                     <input type="password" value={userPassword} placeholder="Enter your password" onChange={(e) => setUserPassword(e.target.value)} />
-                    <button className={styles.btn} onClick={onClickSignIn}>Sign In</button>
+                    <Button title={"Sign In"} onClick={onClickSignIn}>Sign In</Button>
                 </div>
             </div>
         </>
