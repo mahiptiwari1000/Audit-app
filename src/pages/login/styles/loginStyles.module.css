@@ -1,0 +1,54 @@
+.inputFields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputFields input{
+    width: 10%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #40513B;
+    font-family: "Garamond", serif;
+    font-size: 40px;
+}
+
+.fieldTitle{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: #40513B;
+    font-family: "Garamond", serif;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    color:'#ECF2FF';
+    flex-direction: column;
+    background-color: #EDF1D6;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #609966;
+    font-family: "Garamond", serif;
+    margin-top: 20px;
+    height: 30px;
+    width: 60px;
+    font-size: 15px;
+}
+
+.loader{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
