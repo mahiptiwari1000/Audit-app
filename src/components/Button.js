@@ -1,13 +1,9 @@
-import React from 'react';
-import styles from './styles/buttonStyles.module.css';
+import React from "react";
+import styles from "./styles/buttonStyles.module.css";
 
 const Button = (props) => {
-
-    return (
-        <div>
-            <button className={styles.btn} onClick={props.onClick}>{props.title}</button>
-        </div>
-    );
-}
+  const { onClick, title, btnWidth = 100 } = props;
+  return <div onClick={onClick} className={styles.btn} style={{width: `${btnWidth}px`}}>{title}</div>;
+};
 
 export default Button;

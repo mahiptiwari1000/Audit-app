@@ -1,90 +1,86 @@
-import React, { useState } from 'react';
-import styles from './styles/formStyles.module.css';
-import Button from '../../../src/components/Button';
+import React, { useState } from "react";
+import styles from "./styles/newEntryStyles.module.css";
+import Button from "../../../src/components/Button";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
+const formFields = [
+  {
+    question: "Name of restaurant",
+    inputType: "text",
+    id: "restaurantName",
+    placeholder: 'Enter the restaurant name'
+  },
+  {
+    question: "Address",
+    inputType: "text",
+    id: "address",
+    placeholder: 'Enter the address'
+  },
+  {
+    question: "Hygienity Score",
+    inputType: "number",
+    id: "hygienityScore",
+    placeholder: 'Enter hygienity score'
+  },
+  {
+    question: "Nutrients Score",
+    inputType: "number",
+    id: "nutrientsScore",
+    placeholder: 'Enter nutrients score'
+  },
+];
 
 const NewEntry = () => {
+  const [formData, setFormData] = useState({
+    restaurantName: "",
+    address: "",
+    hygienityScore: null,
+    nutrientsScore: null,
+  });
 
-    const [state, setState] = useState({
-        name: "",
-        address: "",
-        hygienity:"",
-        nutrients:""
+  const navigate = useNavigate();
+
+  const handleFormInput = (e, fieldName) => {
+    const { value } = e.target;
+    setFormData((prev) => {
+      let newObj = { ...prev };
+      newObj[`${fieldName}`] = value;
+      return newObj;
     });
+  };
 
-    const navigate = useNavigate();
+  const onClickBackButton = () => {
+    navigate("/user-dashboard");
+  };
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setState((prevProps) => ({
-            ...prevProps,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(state);
-    };
-
-    const onClickBackButton = () => {
-        navigate('/user-dashboard');
-    }
-
-    return (
-        <div className={styles.wrapper}>
-            <BsArrowLeftCircleFill onClick={onClickBackButton}/>
-            <div className={styles.title}>
-                Create A New Entry
-            </div>
-            <form onSubmit={handleSubmit}>
-                    <div className={styles.formField}>
-                    <label className={styles.formFieldTitle}>Name of the Restaurant: </label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={state.name}
-                        onChange={handleInputChange}
-                        className={styles.formFieldInput}
-                    />
-                    </div>
-                <div className={styles.formField}>
-                <label className={styles.formFieldTitle}>Address: </label>
-                    <input
-                        type="text"
-                        name="address"
-                        value={state.address}
-                        onChange={handleInputChange}
-                        className={styles.formFieldInput}
-                    />
-                </div>
-                <div className={styles.formField}>
-                <label className={styles.formFieldTitle}>Hygienity Score: </label>
-                    <input
-                        type="text"
-                        name="hygienity"
-                        value={state.hygienity}
-                        onChange={handleInputChange}
-                        className={styles.formFieldInput}
-                    />
-                </div>
-                <div className={styles.formField}>
-                <label className={styles.formFieldTitle}>Nutrients Score: </label>
-                    <input
-                        type="text"
-                        name="nutrients"
-                        value={state.nutrients}
-                        onChange={handleInputChange}
-                        className={styles.formFieldInput}
-                    />
-                </div>
-                <div className="submit-btn">
-                    <Button title={"Submit"}></Button>
-                </div>
-            </form>
+  return (
+    <div className={styles.wrapper}>
+      <BsArrowLeftCircleFill onClick={onClickBackButton} />
+      <div className={styles.title}>Create A New Entry</div>
+      <div className={styles.formBody}>
+        <div className={styles.formQuestions}>
+          {formFields.map((field) => {
+            return <div className={styles.formQuestion}>{field.question}</div>;
+          })}
         </div>
-    );
-}
+        <div className={styles.formInputs}>
+          {formFields.map((field) => {
+            return (
+              <div className={styles.formInput}>
+                <input
+                  type={field.inputType}
+                  value={formData[`${field.id}`]}
+                  placeholder={field.placeholder}
+                  onChange={(e) => handleFormInput(e, field.id)}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default NewEntry;
