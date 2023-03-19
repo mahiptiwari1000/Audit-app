@@ -16,6 +16,10 @@ const Login = () => {
                 navigate('/user-dashboard');
                 setIsLoading(false);
         }
+        else if(userEmail == 'admin@gmail.com' && userPassword == 'admin@123'){
+            navigate('/admin-dashboard');
+            setIsLoading(false);
+        }
         else {
                 setIsLoading(false);
         }

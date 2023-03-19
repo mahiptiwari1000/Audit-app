@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './styles/formStyles.module.css';
 import Button from '../../../src/components/Button';
+import { BsArrowLeftCircleFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 const NewEntry = () => {
 
@@ -10,6 +12,8 @@ const NewEntry = () => {
         hygienity:"",
         nutrients:""
     });
+
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -24,8 +28,13 @@ const NewEntry = () => {
         console.log(state);
     };
 
+    const onClickBackButton = () => {
+        navigate('/user-dashboard');
+    }
+
     return (
         <div className={styles.wrapper}>
+            <BsArrowLeftCircleFill onClick={onClickBackButton}/>
             <div className={styles.title}>
                 Create A New Entry
             </div>
