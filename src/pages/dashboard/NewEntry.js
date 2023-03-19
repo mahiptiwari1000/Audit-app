@@ -6,10 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 const formFields = [
   {
-    question: "Name of restaurant",
+    question: "FBO Name",
     inputType: "text",
     id: "restaurantName",
     placeholder: 'Enter the restaurant name'
+  },
+  {
+    question:"Auditor Name",
+    inputType: "text",
+    id:"auditorName",
+    placeholder: "Enter the auditor name"
+  },
+  {
+    question:"FBO's representative",
+    inputType:"text",
+    id:"fboRepresentativeName",
+    placeholder:"Representative name"
   },
   {
     question: "Address",
@@ -18,25 +30,27 @@ const formFields = [
     placeholder: 'Enter the address'
   },
   {
-    question: "Hygienity Score",
+    question: "FBO License No",
     inputType: "number",
-    id: "hygienityScore",
-    placeholder: 'Enter hygienity score'
+    id: "licenseNo",
+    placeholder: 'Enter License No'
   },
   {
-    question: "Nutrients Score",
+    question: "Date",
     inputType: "number",
-    id: "nutrientsScore",
-    placeholder: 'Enter nutrients score'
+    id: "dateOfAudit",
+    placeholder: 'Date of Audit'
   },
 ];
 
 const NewEntry = () => {
   const [formData, setFormData] = useState({
     restaurantName: "",
+    auditorName:"",
+    fboRepresentativeName:"",
     address: "",
-    hygienityScore: null,
-    nutrientsScore: null,
+    licenseNo: null,
+    dateOfAudit: null,
   });
 
   const navigate = useNavigate();
