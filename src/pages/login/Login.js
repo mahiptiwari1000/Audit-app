@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
 import Images from "../../themes/Images";
 import Button from "../../components/Button";
+// import Alert from '@mui/material/Alert';
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [isValid,setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,14 +18,19 @@ const Login = () => {
     if (userEmail === "user@gmail.com" && userPassword === "user@123") {
       navigate("/user-dashboard");
       setIsLoading(false);
+      setIsValid(false);
     } else if (
       userEmail === "admin@gmail.com" &&
       userPassword === "admin@123"
     ) {
       navigate("/admin-dashboard");
       setIsLoading(false);
+      setIsValid(true);
     } else {
       setIsLoading(false);
+      setIsValid(false);
+      setUserEmail('');
+      setUserPassword('');
     }
   };
 
@@ -64,6 +71,7 @@ const Login = () => {
               placeholder="Enter your password"
               onChange={(e) => setUserPassword(e.target.value)}
             />
+            {!isValid && <div className={styles.errorMessage}>Invalid username or password</div>}
             <div className={styles.signInButton}>
               <Button title={"Sign In"} onClick={onClickSignIn} />
             </div>
