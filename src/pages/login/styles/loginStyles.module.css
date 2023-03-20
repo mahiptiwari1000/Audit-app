@@ -1,46 +1,74 @@
-.inputFields{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.inputFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
 }
 
-.inputFields input{
-    width: 15%;
-    height: 3vh;
-    border-radius: 15px 15px 15px 15px;
-    padding-left: 1rem;
+.inputFields input {
+  width: 100%;
+  height: 3vh;
+  border-radius: 15px 15px 15px 15px;
+  padding-left: 1rem;
 }
 
-.title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #40513B;
-    font-family: "Garamond", serif;
-    font-size: 40px;
-    margin-top: 13%;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #40513b;
+  font-family: "Garamond", serif;
+  font-size: 40px;
+  margin-bottom: 5vh;
 }
 
-.fieldTitle{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    color: #40513B;
-    font-family: "Garamond", serif;
+.fieldTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #40513b;
+  font-family: "Garamond", serif;
 }
 
-.wrapper{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    color:'#ECF2FF';
-    flex-direction: column;
-    background-color: #EDF1D6;
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: "#ECF2FF";
+  flex-direction: column;
+  background: rgb(64, 81, 59);
+  background: linear-gradient(
+    90deg,
+    rgba(64, 81, 59, 1) 0%,
+    rgba(96, 153, 102, 1) 35%,
+    rgba(237, 241, 214, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
 }
 
-.loader{
-    display: flex;
-    align-items:center;
-    justify-content: center;
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginFormBody {
+  background-color: whitesmoke;
+  display: flex;
+  width: 30%;
+  height: 70vh;
+  justify-content: flex-start;
+  padding-top: 5vh;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  -webkit-box-shadow: 6px -2px 11px -1px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 6px -2px 11px -1px rgba(0, 0, 0, 0.61);
+  box-shadow: 6px -2px 11px -1px rgba(0, 0, 0, 0.61);
+}
+
+.signInButton{
+    margin-top: 5vh;
 }

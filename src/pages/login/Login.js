@@ -42,25 +42,28 @@ const Login = () => {
         />
       )}
       <div className={styles.wrapper}>
-        <div className={styles.title}>Welcome Back</div>
-        <div className={styles.inputFields}>
-          <h3 className={styles.fieldTitle}>Email</h3>
-          <input
-            type="text"
-            value={userEmail}
-            placeholder="Enter your email"
-            onChange={(e) => setUserEmail(e.target.value)}
-          />
-          <h3 className={styles.fieldTitle}>Password</h3>
-          <input
-            type="password"
-            value={userPassword}
-            placeholder="Enter your password"
-            onChange={(e) => setUserPassword(e.target.value)}
-          />
-          <Button title={"Sign In"} onClick={onClickSignIn}>
-            Sign In
-          </Button>
+        <div className={styles.loginFormBody}>
+          <div className={styles.title}>Welcome Back</div>
+          <div className={styles.inputFields}>
+            <h3 className={styles.fieldTitle}>Email</h3>
+            <input
+              type="text"
+              value={userEmail}
+              placeholder="Enter your email"
+              onChange={(e) => setUserEmail(e.target.value)}
+              style={{marginBottom: '3vh'}}
+            />
+            <h3 className={styles.fieldTitle}>Password</h3>
+            <input
+              type="password"
+              value={userPassword}
+              placeholder="Enter your password"
+              onChange={(e) => setUserPassword(e.target.value)}
+            />
+            <div className={styles.signInButton}>
+              <Button title={"Sign In"} onClick={onClickSignIn} />
+            </div>
+          </div>
         </div>
       </div>
     </>
