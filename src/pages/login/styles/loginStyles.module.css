@@ -72,3 +72,8 @@
 .signInButton{
     margin-top: 5vh;
 }
+
+.companyLogo{
+    position: relative;
+    bottom: 5vh;
+}

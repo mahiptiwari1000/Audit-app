@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles/loginStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
+import Images from "../../themes/Images";
 import Button from "../../components/Button";
 
 const Login = () => {
@@ -42,6 +43,9 @@ const Login = () => {
         />
       )}
       <div className={styles.wrapper}>
+        <div className={styles.companyLogo}>
+          <img src={Images.GREEN_TICK_PVT_LTD_LOGO} alt='Green tick private limited logo' />
+        </div>
         <div className={styles.loginFormBody}>
           <div className={styles.title}>Welcome Back</div>
           <div className={styles.inputFields}>
