@@ -1,31 +1,51 @@
 import React from "react";
 import styles from "./styles/dashboardStyles.module.css";
 import { useNavigate } from "react-router-dom";
-import Button from "../../../src/components/Button";
 import { SiSpringboot } from "react-icons/si";
+import Button from "../../../src/components/Button";
+import Icons from "../../themes/Icons";
+import Navbar from "../../components/Navbar";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const onClickLogout = () => {
-    navigate("/");
-  };
+    navigate("/")
+  }
 
   const onClickNewEntry = () => {
     navigate("/new-entry");
   };
 
   const onClickNewForm = () => {
-    console.log("New form");
+    navigate("/new-form");
   };
 
   return (
     <div className={styles.wrapper}>
-      <SiSpringboot onClick={onClickLogout} />
-      <div className={styles.title}>Admin Dashboard</div>
-      <Button title={"Create a New Form"} onClick={onClickNewForm}></Button>
-      <Button title={"New Entry"} onClick={onClickNewEntry}></Button>
-      <Button title={"List of Previous Entries"}></Button>
+      <Navbar activeItem={"Home"} />
+      <div className={styles.dashboardWrapper}>
+        <div className={styles.headerSection}>
+          <div className={styles.titleSection}>
+            <div className={styles.title}>Dashboard</div>
+            <div className={styles.icon}>
+              <img src={Icons.SEARCH} alt="Search icon" />
+            </div>
+          </div>
+          <div className={styles.subHeaderSection}>
+          <div className={styles.newEntry} onClick={onClickNewForm}>
+            <div className={styles.newEntryText}>Create a New Form</div>
+          </div>
+          <div className={styles.newEntry}>
+            <div className={styles.newEntryText}>Create a New User</div>
+          </div>
+          <div className={styles.logout}  onClick={onClickLogout}>
+          <div className={styles.logoutText}>Logout</div>
+          </div>
+          </div>
+        </div>
+        <div className={styles.bodySection}>No Entries Yet!!!</div>
+      </div>
     </div>
   );
 };

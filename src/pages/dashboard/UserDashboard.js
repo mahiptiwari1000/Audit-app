@@ -10,8 +10,8 @@ const UserDashboard = () => {
   const navigate = useNavigate();
 
   const onClickLogout = () => {
-    navigate("/");
-  };
+    navigate("/")
+  }
 
   const onClickNewEntry = () => {
     navigate("/new-entry");
@@ -28,8 +28,13 @@ const UserDashboard = () => {
               <img src={Icons.SEARCH} alt="Search icon" />
             </div>
           </div>
+          <div className={styles.subHeaderSection}>
           <div className={styles.newEntry} onClick={onClickNewEntry}>
             <div className={styles.newEntryText}>New Entry</div>
+          </div>
+          <div className={styles.logout}  onClick={onClickLogout}>
+          <div className={styles.logoutText}>Logout</div>
+          </div>
           </div>
         </div>
         <div className={styles.bodySection}>No Entries Yet!!!</div>

@@ -45,10 +45,27 @@
     font-size: 1.5rem;
 }
 
-.logout {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+.logoutText {
+    margin-left: 5%;
+    border: 1px solid #40513b;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #ECF2FF;
+    background-color: #40513b;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+}
+
+.logout{
+    display: flex;
+    width: 100%;
+    color: #40513b;
+    margin-bottom: 2vh;
+    margin-left: 5vh;
+}
+
+.subHeaderSection{
+    display: flex;
 }
 
 .icon img{
@@ -71,6 +88,7 @@
     width: 100%;
     color: #40513b;
     margin-bottom: 2vh;
+    margin-right: 5vh;
 }
 
 .newEntryText{

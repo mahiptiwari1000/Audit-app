@@ -5,7 +5,7 @@ export const NavbarItems = [
   },
   {
     name: "Forms",
-    patph: "forms",
+    path: "forms",
   },
   {
     name: "Team",
