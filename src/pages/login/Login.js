@@ -54,7 +54,7 @@ const Login = () => {
           <img src={Images.GREEN_TICK_PVT_LTD_LOGO} alt='Green tick private limited logo' />
         </div>
         <div className={styles.loginFormBody}>
-          <div className={styles.title}>Welcome Back</div>
+          <div className={styles.title}>Login Page</div>
           <div className={styles.inputFields}>
             <h3 className={styles.fieldTitle}>Email</h3>
             <input
