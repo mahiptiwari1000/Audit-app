@@ -12,7 +12,7 @@ const formFields = [
     placeholder: 'Enter the restaurant name'
   },
   {
-    question:"Auditor Name",
+    question:"Audit Name",
     inputType: "text",
     id:"auditorName",
     placeholder: "Enter the auditor name"
