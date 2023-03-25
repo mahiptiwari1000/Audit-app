@@ -17,10 +17,26 @@ const UserDashboard = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SiSpringboot onClick={onClickLogout} />
-      <div className={styles.title}>User Dashboard</div>
-      <Button title={"New Entry"} onClick={onClickNewEntry}></Button>
-      <Button title={"Previous Entries"} btnWidth={150}></Button>
+      {/* <Navbar activeItem={"Home"} /> */}
+      <div className={styles.dashboardWrapper}>
+        <div className={styles.headerSection}>
+          <div className={styles.titleSection}>
+            <div className={styles.title}>Dashboard</div>
+            <div className={styles.icon}>
+              <img src={Icons.SEARCH} alt="Search icon" />
+            </div>
+          </div>
+          <div className={styles.subHeaderSection}>
+          <div className={styles.newEntry} onClick={onClickNewEntry}>
+            <div className={styles.newEntryText}>New Entry</div>
+          </div>
+          <div className={styles.logout}  onClick={onClickLogout}>
+          <div className={styles.logoutText}>Logout</div>
+          </div>
+          </div>
+        </div>
+        <div className={styles.bodySection}>No Entries Yet!!!</div>
+      </div>
     </div>
   );
 };

@@ -12,16 +12,20 @@ const formFields = [
     placeholder: 'Enter the restaurant name'
   },
   {
+<<<<<<< Updated upstream
     question:"Auditor Name",
+=======
+    question: "Audit Name",
+>>>>>>> Stashed changes
     inputType: "text",
-    id:"auditorName",
+    id: "auditorName",
     placeholder: "Enter the auditor name"
   },
   {
-    question:"FBO's representative",
-    inputType:"text",
-    id:"fboRepresentativeName",
-    placeholder:"Representative name"
+    question: "FBO's representative",
+    inputType: "text",
+    id: "fboRepresentativeName",
+    placeholder: "Representative name"
   },
   {
     question: "Address",
@@ -41,13 +45,67 @@ const formFields = [
     id: "dateOfAudit",
     placeholder: 'Date of Audit'
   },
+  {
+    question: "Food establishment has updated FSSAI license and is displayed at a prominent location",
+    inputType: "number",
+    id: "score1",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "The design of food premises provides adequate working space; permit maintenance & cleaning to prevent the entry of dirt, dust & pests",
+    inputType: "number",
+    id: "score2",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "The internal structure & fittings are made of non-toxic impermeable material.",
+    inputType: "number",
+    id: "score3",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Walls, ceilings & doors are free from flaking paint or plaster, condensation & shedding particles ",
+    inputType: "number",
+    id: "score4",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Floors are non-slippery & slopped appropriately",
+    inputType: "number",
+    id: "score5",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Windows are kept closed & fitted with insect proof screen when opening to an external environment ",
+    inputType: "number",
+    id: "score6",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Doors are close fitted at all ends to avoid entry of pests. ",
+    inputType: "number",
+    id: "score7",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Equipment and containers are made of non-toxic, impervious, non-corrosive material which is easy to clean and disinfect. (Preferably SS316 & SS304 for tanks/tankers)",
+    inputType: "number",
+    id: "score8",
+    placeholder: 'Enter your Score'
+  },
+  {
+    question: "Premise has sufficient lighting ",
+    inputType: "number",
+    id: "score9",
+    placeholder: 'Enter your Score'
+  }
 ];
 
 const NewEntry = () => {
   const [formData, setFormData] = useState({
     restaurantName: "",
-    auditorName:"",
-    fboRepresentativeName:"",
+    auditorName: "",
+    fboRepresentativeName: "",
     address: "",
     licenseNo: null,
     dateOfAudit: null,
