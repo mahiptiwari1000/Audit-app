@@ -12,11 +12,7 @@ const formFields = [
     placeholder: 'Enter the restaurant name'
   },
   {
-<<<<<<< Updated upstream
     question:"Auditor Name",
-=======
-    question: "Audit Name",
->>>>>>> Stashed changes
     inputType: "text",
     id: "auditorName",
     placeholder: "Enter the auditor name"
