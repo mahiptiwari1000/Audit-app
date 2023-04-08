@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/dashboardStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import { SiSpringboot } from "react-icons/si";
 import Button from "../../../src/components/Button";
 import Icons from "../../themes/Icons";
 import Navbar from "../../components/Navbar";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const UserDashboard = () => {
+  const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
   const onClickLogout = () => {
-    navigate("/")
-  }
+    signOut(auth)
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((error) => console.log(error));
+    navigate("/");
+  };
 
   const onClickNewEntry = () => {
     navigate("/new-entry");
@@ -29,12 +51,12 @@ const UserDashboard = () => {
             </div>
           </div>
           <div className={styles.subHeaderSection}>
-          <div className={styles.newEntry} onClick={onClickNewEntry}>
-            <div className={styles.newEntryText}>New Entry</div>
-          </div>
-          <div className={styles.logout}  onClick={onClickLogout}>
-          <div className={styles.logoutText}>Logout</div>
-          </div>
+            <div className={styles.newEntry} onClick={onClickNewEntry}>
+              <div className={styles.newEntryText}>New Entry</div>
+            </div>
+            <div className={styles.logout} onClick={onClickLogout}>
+              <div className={styles.logoutText}>Logout</div>
+            </div>
           </div>
         </div>
         <div className={styles.bodySection}>No Entries Yet!!!</div>

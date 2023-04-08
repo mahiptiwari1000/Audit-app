@@ -4,32 +4,25 @@ import { useNavigate } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
 import Images from "../../themes/Images";
 import Button from "../../components/Button";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 // import Alert from '@mui/material/Alert';
 import { auth } from "../../../src/firebase";
 
-const Login = () => {
+const Signup = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
-  const onClickSignIn = (e) => {
+  const onClickSignUp = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, userEmail, userPassword)
+    createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate("/user-dashboard");
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  const onClickCreateANewUser = (e) => {
-    navigate("/sign-up");
   };
 
   return (
@@ -55,7 +48,7 @@ const Login = () => {
           />
         </div>
         <div className={styles.loginFormBody}>
-          <div className={styles.title}>Login Page</div>
+          <div className={styles.title}>Signup Page</div>
           <div className={styles.inputFields}>
             <h3 className={styles.fieldTitle}>Email</h3>
             <input
@@ -78,11 +71,7 @@ const Login = () => {
               </div>
             )} */}
             <div className={styles.signInButton}>
-              <Button title={"Sign In"} onClick={(e) => onClickSignIn(e)} />
-              <Button
-                title={"Create A New User"}
-                onClick={(e) => onClickCreateANewUser(e)}
-              />
+              <Button title={"Sign Up"} onClick={(e) => onClickSignUp(e)} />
             </div>
           </div>
         </div>
@@ -91,4 +80,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

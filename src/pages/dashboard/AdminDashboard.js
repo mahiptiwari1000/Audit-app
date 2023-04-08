@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/dashboardStyles.module.css";
 import { useNavigate } from "react-router-dom";
 import { SiSpringboot } from "react-icons/si";
 import Button from "../../../src/components/Button";
 import Icons from "../../themes/Icons";
 import Navbar from "../../components/Navbar";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
   const onClickLogout = () => {
-    navigate("/")
-  }
+    signOut(auth)
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((error) => console.log(error));
+    navigate("/");
+  };
 
   const onClickNewEntry = () => {
     navigate("/new-entry");
@@ -33,15 +56,15 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className={styles.subHeaderSection}>
-          <div className={styles.newEntry} onClick={onClickNewForm}>
-            <div className={styles.newEntryText}>Create a New Form</div>
-          </div>
-          <div className={styles.newEntry}>
-            <div className={styles.newEntryText}>Create a New User</div>
-          </div>
-          <div className={styles.logout}  onClick={onClickLogout}>
-          <div className={styles.logoutText}>Logout</div>
-          </div>
+            <div className={styles.newEntry} onClick={onClickNewForm}>
+              <div className={styles.newEntryText}>Create a New Form</div>
+            </div>
+            <div className={styles.newEntry}>
+              <div className={styles.newEntryText}>Create a New User</div>
+            </div>
+            <div className={styles.logout} onClick={onClickLogout}>
+              <div className={styles.logoutText}>Logout</div>
+            </div>
           </div>
         </div>
         <div className={styles.bodySection}>No Entries Yet!!!</div>
