@@ -16,3 +16,5 @@ export const NavbarItems = [
     path: "settings",
   },
 ];
+
+export const NewEntryFormItems = [];

@@ -59,9 +59,6 @@ const AdminDashboard = () => {
             <div className={styles.newEntry} onClick={onClickNewForm}>
               <div className={styles.newEntryText}>Create a New Form</div>
             </div>
-            <div className={styles.newEntry}>
-              <div className={styles.newEntryText}>Create a New User</div>
-            </div>
             <div className={styles.logout} onClick={onClickLogout}>
               <div className={styles.logoutText}>Logout</div>
             </div>

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { SiSpringboot } from "react-icons/si";
 import Button from "../../../src/components/Button";
 import Icons from "../../themes/Icons";
-import Navbar from "../../components/Navbar";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -41,7 +40,6 @@ const UserDashboard = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Navbar activeItem={"Home"} />
       <div className={styles.dashboardWrapper}>
         <div className={styles.headerSection}>
           <div className={styles.titleSection}>
