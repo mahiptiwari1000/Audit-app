@@ -5,6 +5,8 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { gradingData } from "../../utils/constants";
 import { scoreData } from "../../utils/constants";
+import { newEntryFormData } from "../../utils/constants";
+import FormInput from "../forms/FormInput";
 
 const formFields = [
   {
@@ -98,7 +100,7 @@ const NewEntry = () => {
           </div>
         </div>
       </div>
-      <div className="table-style">
+      <div className={styles.tableStyle}>
         <caption>Grading Data</caption>
         <table>
           {gradingData.map((d) => {
@@ -113,7 +115,7 @@ const NewEntry = () => {
         </table>
       </div>
 
-      <div className="table-style">
+      <div className={styles.tableStyle}>
         <table>
           <tr>
             <th>S.No</th>
@@ -133,6 +135,7 @@ const NewEntry = () => {
           })}
         </table>
       </div>
+      <FormInput data={newEntryFormData} />
     </>
   );
 };

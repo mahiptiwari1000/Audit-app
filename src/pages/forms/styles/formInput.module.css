@@ -17,8 +17,10 @@
 }
 
 .formPrompt{
-    font-size: 2rem;
-    margin-bottom: 5vh;
+    font-size: 1.8rem;
+    margin-bottom: 10vh;
+    width: 80%;
+    text-align: center;
 }
 
 .inputStyle{

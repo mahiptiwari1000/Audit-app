@@ -24,14 +24,17 @@ const PromptComponent = (props) => {
   );
 };
 
-export default function FormInput() {
+export default function FormInput({ data }) {
   //   const [inputValue, setInputValue] = useState("");
   const scrollRef = useRef(null);
+  console.log(data, "data");
 
   return (
     <div className={styles.container}>
-      <PromptComponent prompt={"What's ur name?"} inputType={"text"} />
-      <PromptComponent prompt={"What's ur age?"} inputType={"number"} />
+      {data &&
+        data.map((d) => (
+          <PromptComponent prompt={d.title} inputType={d.inputType} />
+        ))}
     </div>
   );
 }
