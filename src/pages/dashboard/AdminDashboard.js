@@ -5,43 +5,12 @@ import { SiSpringboot } from "react-icons/si";
 import Button from "../../../src/components/Button";
 import Icons from "../../themes/Icons";
 import Navbar from "../../components/Navbar";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
-  const [authUser, setAuthUser] = useState(null);
-
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-
-    return () => {
-      listen();
-    };
-  }, []);
-
-  const onClickLogout = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("sign out successful");
-      })
-      .catch((error) => console.log(error));
-    navigate("/");
-  };
-
   const onClickNewEntry = () => {
     navigate("/new-entry");
-  };
-
-  const onClickNewForm = () => {
-    navigate("/new-form");
   };
 
   return (
@@ -56,11 +25,8 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className={styles.subHeaderSection}>
-            <div className={styles.newEntry} onClick={onClickNewForm}>
-              <div className={styles.newEntryText}>Create a New Form</div>
-            </div>
-            <div className={styles.logout} onClick={onClickLogout}>
-              <div className={styles.logoutText}>Logout</div>
+            <div className={styles.newEntry} onClick={onClickNewEntry}>
+              <div className={styles.newEntryText}>Create a New Entry</div>
             </div>
           </div>
         </div>

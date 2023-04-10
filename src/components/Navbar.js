@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavbarItems } from "../utils/constants";
 import styles from "./styles/navbarStyles.module.css";
 import { useNavigate } from "react-router-dom";
+import Icons from "../themes/Icons";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const NavbarItem = (props) => {
   const { name, path, isActive, onClick = {} } = props;
@@ -19,10 +22,34 @@ const NavbarItem = (props) => {
 export default function Navbar(props) {
   const { activeItem } = props;
   const navigate = useNavigate();
+  const [authUser, setAuthUser] = useState(null);
 
   const onClickNavBarItem = (item) => {
     console.log("jndjnj", item);
     navigate(item.path);
+  };
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
+  const onLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((error) => console.log(error));
+    navigate("/");
   };
 
   return (
@@ -37,6 +64,9 @@ export default function Navbar(props) {
             onClick={() => onClickNavBarItem(item)}
           />
         ))}
+        <div className={styles.icon} onClick={() => onLogOut()}>
+          <img src={Icons.LOGOUT} alt="Logout icon" />
+        </div>
       </div>
     </div>
   );

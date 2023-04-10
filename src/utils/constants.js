@@ -1,7 +1,7 @@
 export const NavbarItems = [
   {
     name: "Home",
-    path: "user-dashboard",
+    path: "",
   },
   {
     name: "Forms",

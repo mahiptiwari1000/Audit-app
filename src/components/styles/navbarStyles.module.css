@@ -9,9 +9,18 @@
   border-bottom-right-radius: 10px;
 }
 
-.navbarLinks{
-    margin-top: 25vh;
-    width: 100%;
+.icon img {
+  width: 1.3rem;
+  height: 1.3rem;
+  position: relative;
+  left: 1rem;
+  top: 0.75rem;
+  cursor: pointer;
+}
+
+.navbarLinks {
+  margin-top: 25vh;
+  width: 100%;
 }
 
 .itemWrapper {

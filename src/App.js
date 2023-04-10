@@ -5,7 +5,8 @@ import AdminDashboard from "./pages/dashboard/AdminDashboard";
 import NewEntry from "./pages/dashboard/NewEntry";
 import NewForm from "./pages/dashboard/NewForm";
 import Signup from "./pages/login/Sigup";
-import Settings from "./pages/settings/Settings";
+import FormPage from "./pages/forms/FormsPage";
+import Team from "./pages/teams/Team";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
           <Route path="/new-entry" element={<NewEntry />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/new-form" element={<NewForm />} />
-          <Route path="/admin-dashboard/settings" element={<Settings />} />
-          <Route path="/admin-dashboard/forms" element={<Settings />} />
-          <Route path="/admin-dashboard/team" element={<Settings />} />
+          <Route path="/admin-dashboard/forms" element={<FormPage />} />
+          <Route path="/admin-dashboard/team" element={<Team/>} />
+          {/* <Route path="/admin-dashboard/team" element={<Settings />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
