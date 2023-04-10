@@ -100,6 +100,7 @@
   background-color: #40513b;
   font-weight: 500;
   padding: 0.5rem 1.5rem;
+  white-space: nowrap;
 }
 
 .dashboardWrapper {

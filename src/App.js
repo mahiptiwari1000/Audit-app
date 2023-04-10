@@ -17,10 +17,11 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/new-entry" element={<NewEntry />} />
+          <Route path="/admin-dashboard/entry/:id" element={<Signup />}/>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/new-form" element={<NewForm />} />
           <Route path="/admin-dashboard/forms" element={<FormPage />} />
-          <Route path="/admin-dashboard/team" element={<Team/>} />
+          <Route path="/admin-dashboard/team" element={<Team />}></Route>
           {/* <Route path="/admin-dashboard/team" element={<Settings />} /> */}
         </Routes>
       </BrowserRouter>

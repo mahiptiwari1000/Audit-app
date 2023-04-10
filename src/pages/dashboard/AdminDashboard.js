@@ -43,6 +43,7 @@ const AdminDashboard = () => {
               title={d.title}
               date={d.date}
               description={d.description}
+              id={d.id}
             />
           ))}
         </div>
