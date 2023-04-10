@@ -6,13 +6,13 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import { useNavigate,Link } from "react-router-dom";
 
-const CardForEntries = ({ title, date, description, id }) => {
+const CardForEntries = ({ title, date, description, id,keyword }) => {
   const navigate = useNavigate();
 
   return (
     <>
       <div>
-      <Link to={`/admin-dashboard/entry${id}`}>
+      <Link to={`/admin-dashboard/${keyword}${id}`}>
         <Card
           style={{
             width: 400,

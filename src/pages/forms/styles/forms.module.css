@@ -37,7 +37,7 @@
   /**
     Modifications for screenshot
     */
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   color: #40513b;

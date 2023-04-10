@@ -123,3 +123,22 @@ export const entryData = [
     date: "26/04/2023",
   },
 ];
+
+
+export const createdFormsData = [
+  {
+    id:1,
+    title: "Dairy Form",
+    date: "02/03/2023",
+  },
+  {
+    id:2,
+    title: "Fast Food Form",
+    date: "03/04/2023",
+  },
+  {
+    id:3,
+    title: "Normal Food Outlet Form",
+    date: "26/04/2023",
+  },
+]
