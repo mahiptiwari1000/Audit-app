@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/team.module.css";
 import Icons from "../../themes/Icons";
 import Modal from "../../components/Modal";
 import { useSnackbar } from "../../components/useSnackBar";
 import { Snackbar } from "../../components/SnackBar";
+import firebase from "firebase/app";
+import "firebase/database";
 
 function Team(props) {
   const [isOpenAddUserModal, setIsOpenAddUserModal] = useState(false);
   const { isActive, message, openSnackBar } = useSnackbar();
+  const [users, setUsers] = useState([]);
 
   const _showSnackbarHandler = () => {
     openSnackBar("New User Created!");
@@ -20,7 +23,13 @@ function Team(props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.dashboardWrapper}>
-        {isOpenAddUserModal && <Modal setIsOpen={setIsOpenAddUserModal} isOpenSnackBar={_showSnackbarHandler}/>}
+        {isOpenAddUserModal && (
+          <Modal
+            setIsOpen={setIsOpenAddUserModal}
+            isOpenSnackBar={_showSnackbarHandler}
+            setListOfUsers={setUsers}
+          />
+        )}
         <Snackbar isActive={isActive} message={message} />
         <div className={styles.headerSection}>
           <div className={styles.titleSection}>
@@ -37,7 +46,9 @@ function Team(props) {
             </div>
           </div>
         </div>
-        <div className={styles.bodySection}>No Users Added Yet!!!</div>
+        <div className={styles.bodySection}>
+          {users.length ? users.map((d) => d.email) : "No Users Added Yet!!!"}
+        </div>
       </div>
     </div>
   );

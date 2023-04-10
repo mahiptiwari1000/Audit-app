@@ -13,7 +13,6 @@ import ProgressBar from "../../components/ProgressBar";
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const loadingDuration = 3000; // 3 seconds
@@ -46,8 +45,12 @@ const Login = () => {
           userPassword === "admin123"
         ) {
           navigate("/admin-dashboard");
+          setUserEmail("");
+          setUserPassword("");
         } else {
           navigate("/user-dashboard");
+          setUserEmail("");
+          setUserPassword("");
         }
         setLoading(false);
       })

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/modalStyles.module.css";
 import { RiCloseLine } from "react-icons/ri";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -6,17 +6,24 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import Button from "./Button";
 
-const Modal = ({ setIsOpen, isOpenSnackBar = {} }) => {
+const Modal = ({ setIsOpen, isOpenSnackBar = {}, setListOfUsers }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
+  const signedUpUsers = [];
+
+  useEffect(() => {
+    setListOfUsers(signedUpUsers);
+  }, []);
+
   const onClickSignUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
-        console.log(userCredential);
+        signedUpUsers.push({ email: userEmail });
+        setListOfUsers(signedUpUsers);
         isOpenSnackBar();
       })
       .catch((error) => {
