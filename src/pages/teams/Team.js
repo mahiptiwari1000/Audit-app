@@ -41,7 +41,7 @@ function Team(props) {
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
               <div className={styles.newEntryText} onClick={onClickAddNewUser}>
-                Add a New User
+                Add User
               </div>
             </div>
           </div>

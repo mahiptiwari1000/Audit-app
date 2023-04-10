@@ -5,6 +5,11 @@ import { SiSpringboot } from "react-icons/si";
 import Button from "../../../src/components/Button";
 import Icons from "../../themes/Icons";
 import Navbar from "../../components/Navbar";
+import Card from "../../components/Card";
+import styled from "styled-components";
+import { FaCommentAlt, FaThumbsUp, FaRegEye } from "react-icons/fa";
+import { entryData } from "../../utils/constants";
+import CardForEntries from "../../components/Card";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -26,11 +31,21 @@ const AdminDashboard = () => {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry} onClick={onClickNewEntry}>
-              <div className={styles.newEntryText}>Create a New Entry</div>
+              <div className={styles.newEntryText}>Create Entry</div>
             </div>
           </div>
         </div>
-        <div className={styles.bodySection}>No Entries Yet!!!</div>
+        <div className={styles.bodySection}>
+          <p>Existing Entries:</p>
+          {entryData.map((d) => (
+            <CardForEntries
+              key={d.title}
+              title={d.title}
+              date={d.date}
+              description={d.description}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

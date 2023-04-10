@@ -105,3 +105,18 @@ export const newEntryFormData = [
     inputType: "number",
   },
 ];
+
+export const entryData = [
+  {
+    title: "Ajekar Milk Producers Co Operative Society",
+    date: "02/03/2023",
+  },
+  {
+    title: "Bijekar Milk Producers Co Operative Society",
+    date: "03/04/2023",
+  },
+  {
+    title: "Rijekar Milk Producers Co Operative Society",
+    date: "26/04/2023",
+  },
+];

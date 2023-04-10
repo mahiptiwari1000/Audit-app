@@ -27,7 +27,6 @@ const PromptComponent = (props) => {
 export default function FormInput({ data }) {
   //   const [inputValue, setInputValue] = useState("");
   const scrollRef = useRef(null);
-  console.log(data, "data");
 
   return (
     <div className={styles.container}>

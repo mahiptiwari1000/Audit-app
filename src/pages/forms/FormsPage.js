@@ -15,7 +15,7 @@ function Forms(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
-              <div className={styles.newEntryText}>Create New Form</div>
+              <div className={styles.newEntryText}>Create Form</div>
             </div>
           </div>
         </div>
