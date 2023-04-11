@@ -64,3 +64,83 @@ export const scoreData = [
     obtainedScore: 10,
   },
 ];
+
+export const newEntryFormData = [
+  {
+    id: 1,
+    title:
+      "Food establishment has updated FSSAI license and is displayed at a prominent location",
+    inputType: "number",
+  },
+  {
+    id: 2,
+    title:
+      "The design of food premises provides adequate working space; permit maintenance & cleaning to prevent the entry of dirt, dust & pests",
+    inputType: "number",
+  },
+  {
+    id: 3,
+    title:
+      "The internal structure & fittings are made of non-toxic impermeable material.",
+    inputType: "number",
+  },
+  {
+    id: 4,
+    title:
+      "Walls, ceilings & doors are free from flaking paint or plaster, condensation & shedding particles",
+    inputType: "number",
+  },
+  {
+    id: 5,
+    title: "Floors are non-slippery & slopped appropriately",
+    inputType: "number",
+  },
+  {
+    id: 6,
+    title:
+      "Windows are kept closed & fitted with insect proof screen when opening to an external environment",
+    inputType: "number",
+  },
+  {
+    id: 7,
+    title: "Doors are close fitted at all ends to avoid entry of pests.",
+    inputType: "number",
+  },
+];
+
+export const entryData = [
+  {
+    id:1,
+    title: "Ajekar Milk Producers Co Operative Society",
+    date: "02/03/2023",
+  },
+  {
+    id:2,
+    title: "Bijekar Milk Producers Co Operative Society",
+    date: "03/04/2023",
+  },
+  {
+    id:3,
+    title: "Rijekar Milk Producers Co Operative Society",
+    date: "26/04/2023",
+  },
+];
+
+
+export const createdFormsData = [
+  {
+    id:1,
+    title: "Dairy Form",
+    date: "02/03/2023",
+  },
+  {
+    id:2,
+    title: "Fast Food Form",
+    date: "03/04/2023",
+  },
+  {
+    id:3,
+    title: "Normal Food Outlet Form",
+    date: "26/04/2023",
+  },
+]

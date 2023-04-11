@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./styles/forms.module.css";
 import Icons from "../../themes/Icons";
+import CardForEntries from "../../components/Card";
+import { createdFormsData } from "../../utils/constants";
 
 function Forms(props) {
   return (
@@ -15,11 +17,23 @@ function Forms(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
-              <div className={styles.newEntryText}>New Form</div>
+              <div className={styles.newEntryText}>Create Form</div>
             </div>
           </div>
         </div>
-        <div className={styles.bodySection}>No Forms Yet!!!</div>
+        <div className={styles.bodySection}>
+          <p>Existing Forms:</p>
+          {createdFormsData.length ? createdFormsData.map((d) => (
+            <CardForEntries
+              key={d.title}
+              title={d.title}
+              date={d.date}
+              description={d.description}
+              keyword={"forms"}
+              id={d.id}
+            />
+          )) : 'No Forms Yet!!!'}
+        </div>
       </div>
     </div>
   );
