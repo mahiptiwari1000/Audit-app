@@ -17,6 +17,8 @@ export const NavbarItems = [
   },
 ];
 
+
+
 export const gradingData = [
   { grade: "A+", range: "95-106", category: "Compliance - Exemplar" },
   { grade: "A", range: "83-94", category: "Compliance - Satisfactory" },
