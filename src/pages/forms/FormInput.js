@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles/formInput.module.css";
+import Button from "../../components/Button";
 
 const PromptComponent = (props) => {
   const { prompt, inputType } = props;
@@ -34,6 +35,7 @@ export default function FormInput({ data }) {
         data.map((d) => (
           <PromptComponent prompt={d.title} inputType={d.inputType} />
         ))}
+                <Button title={"Submit"} />
     </div>
   );
 }
