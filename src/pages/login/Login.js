@@ -9,12 +9,14 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 // import Alert from '@mui/material/Alert';
 import { auth } from "../../../src/firebase";
 import ProgressBar from "../../components/ProgressBar";
+import { useSignIn } from "react-auth-kit";
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const signIn = useSignIn();
   const loadingDuration = 3000; // 3 seconds
 
   const navigate = useNavigate();
@@ -44,10 +46,22 @@ const Login = () => {
           userEmail === "admin@greentick.com" &&
           userPassword === "admin123"
         ) {
+          signIn({
+            token:"eyJz93a...k4laUWw",
+            expiresIn:3600,
+            tokenType:"admin",
+            authState:{email:userEmail}
+          })
           navigate("/admin-dashboard");
           setUserEmail("");
           setUserPassword("");
         } else {
+          signIn({
+            token:"eyJz93a...k4laUWw",
+            expiresIn:3600,
+            tokenType:"user",
+            authState:{email:userEmail}
+          })
           navigate("/user-dashboard");
           setUserEmail("");
           setUserPassword("");
@@ -100,7 +114,7 @@ const Login = () => {
               </div>
             )} */}
               <div className={styles.signInButton}>
-                <Button title={"Sign In"} onClick={(e) => onClickSignIn(e)} />
+                  <Button title={"Sign In"} onClick={(e) => onClickSignIn(e)} />
               </div>
             </div>
           </div>
