@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Icons from "../themes/Icons";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { useSignOut } from "react-auth-kit";
 
 const NavbarItem = (props) => {
   const { name, path, isActive, onClick = {} } = props;
@@ -23,6 +24,7 @@ export default function Navbar(props) {
   const { activeItem } = props;
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
+  const signOutUser = useSignOut();
 
   const onClickNavBarItem = (item) => {
     console.log("jndjnj", item);
@@ -46,6 +48,7 @@ export default function Navbar(props) {
   const onLogOut = () => {
     signOut(auth)
       .then(() => {
+        signOutUser();
         console.log("sign out successful");
       })
       .catch((error) => console.log(error));
