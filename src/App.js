@@ -22,7 +22,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/sign-up" element={<Signup />} />
+            <Route path="/sign-up" element={<RequireAuth loginPath="/"><Signup /></RequireAuth>} />
             <Route
               path="/user-dashboard"
               element={
@@ -31,8 +31,8 @@ function App() {
                 </RequireAuth>
               }
             />
-            <Route path="/new-entry" element={<NewEntry />} />
-            <Route path="/admin-dashboard/entry/:id" element={<Signup />} />
+            <Route path="/new-entry" element={<RequireAuth loginPath="/"><NewEntry /></RequireAuth>} />
+            <Route path="/admin-dashboard/entry/:id" element={<RequireAuth loginPath="/"><Signup /></RequireAuth>} />
             <Route
               path="/admin-dashboard"
               element={
@@ -41,10 +41,38 @@ function App() {
                 </RequireAuth>
               }
             />
-            <Route path="/new-form" element={<NewForm />} />
-            <Route path="/admin-dashboard/forms/:id" element={<FormPage />} />
-            <Route path="/admin-dashboard/forms" element={<FormPage />} />
-            <Route path="/admin-dashboard/team" element={<Team />}></Route>
+            <Route
+              path="/new-form"
+              element={
+                <RequireAuth loginPath="/">
+                  <NewForm />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/admin-dashboard/forms/:id"
+              element={
+                <RequireAuth loginPath="/">
+                  <FormPage />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/admin-dashboard/forms"
+              element={
+                <RequireAuth loginPath="/">
+                  <FormPage />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/admin-dashboard/team"
+              element={
+                <RequireAuth loginPath="/">
+                  <Team />
+                </RequireAuth>
+              }
+            ></Route>
             {/* <Route path="/admin-dashboard/team" element={<Settings />} /> */}
           </Routes>
         </BrowserRouter>
