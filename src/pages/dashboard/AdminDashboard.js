@@ -13,8 +13,6 @@ import CardForEntries from "../../components/Card";
 import { useLazyQuery } from "@apollo/client";
 import queries from "../../graphql/queries";
 
-
-
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [getForms, { data: formData, error: formErr, loading: formLoading }] =
@@ -53,17 +51,19 @@ const AdminDashboard = () => {
           </div>
         </div>
         <div className={styles.bodySection}>
-          <p>Existing Entries:</p>
-          {entryData.map((d) => (
-            <CardForEntries
-              key={d.title}
-              title={d.title}
-              date={d.date}
-              description={d.description}
-              keyword={"entry"}
-              id={d.id}
-            />
-          ))}
+          <div className={styles.entryTitle}>Existing Entries:</div>
+          <div className={styles.cardsContainer}>
+            {entryData.map((d) => (
+              <CardForEntries
+                key={d.title}
+                title={d.title}
+                date={d.date}
+                description={d.description}
+                keyword={"entry"}
+                id={d.id}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
