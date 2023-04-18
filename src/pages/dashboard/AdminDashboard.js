@@ -10,21 +10,15 @@ import styled from "styled-components";
 import { FaCommentAlt, FaThumbsUp, FaRegEye } from "react-icons/fa";
 import { entryData } from "../../utils/constants";
 import CardForEntries from "../../components/Card";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
+import queries from "../../graphql/queries";
 
-const TEST = gql`
-  query getAllForms {
-    getAllForms {
-      formId
-      formTitle
-    }
-  }
-`;
+
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [getForms, { data: formData, error: formErr, loading: formLoading }] =
-    useLazyQuery(TEST);
+    useLazyQuery(queries.GET_ALL_FORMS);
 
   useEffect(() => {
     getForms();
