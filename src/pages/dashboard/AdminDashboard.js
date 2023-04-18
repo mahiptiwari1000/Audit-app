@@ -10,9 +10,32 @@ import styled from "styled-components";
 import { FaCommentAlt, FaThumbsUp, FaRegEye } from "react-icons/fa";
 import { entryData } from "../../utils/constants";
 import CardForEntries from "../../components/Card";
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
+
+const TEST = gql`
+  query getAllForms {
+    getAllForms {
+      formId
+      formTitle
+    }
+  }
+`;
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const [getForms, { data: formData, error: formErr, loading: formLoading }] =
+    useLazyQuery(TEST);
+
+  useEffect(() => {
+    getForms();
+  }, [getForms]);
+
+  useEffect(() => {
+    if (formData) {
+      console.log(formData);
+    }
+    console.log(formErr);
+  }, [formData, formLoading, formErr]);
 
   const onClickNewEntry = () => {
     navigate("/new-entry");
@@ -43,7 +66,7 @@ const AdminDashboard = () => {
               title={d.title}
               date={d.date}
               description={d.description}
-              keyword={'entry'}
+              keyword={"entry"}
               id={d.id}
             />
           ))}
