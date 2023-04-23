@@ -74,67 +74,6 @@ const NewEntry = () => {
 
   return (
     <>
-      <div className={styles.wrapper}>
-        <div className={styles.title}>Create A New Entry</div>
-        <div className={styles.formBody}>
-          <div className={styles.formQuestions}>
-            {formFields.map((field) => {
-              return (
-                <div className={styles.formQuestion}>{field.question}</div>
-              );
-            })}
-          </div>
-          <div className={styles.formInputs}>
-            {formFields.map((field) => {
-              return (
-                <div className={styles.formInput}>
-                  <input
-                    type={field.inputType}
-                    value={formData[`${field.id}`]}
-                    placeholder={field.placeholder}
-                    onChange={(e) => handleFormInput(e, field.id)}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <div className={styles.tableStyle}>
-        <caption>Grading Data</caption>
-        <table>
-          {gradingData.map((d) => {
-            return (
-              <tr>
-                <td>{d.grade}</td>
-                <td>{d.range}</td>
-                <td>{d.category}</td>
-              </tr>
-            );
-          })}
-        </table>
-      </div>
-
-      <div className={styles.tableStyle}>
-        <table>
-          <tr>
-            <th>S.No</th>
-            <th>Audit Areas</th>
-            <th>Max Score</th>
-            <th>Obtained Score</th>
-          </tr>
-          {scoreData.map((d) => {
-            return (
-              <tr>
-                <td>{d.sno}</td>
-                <td>{d.auditAreas}</td>
-                <td>{d.maxScore}</td>
-                <td>{d.obtainedScore}</td>
-              </tr>
-            );
-          })}
-        </table>
-      </div>
       <FormInput data={newEntryFormData} />
     </>
   );

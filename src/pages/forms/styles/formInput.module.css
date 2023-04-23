@@ -3,6 +3,7 @@
     flex-direction: column;
     max-width: 100vw;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .wrapper{
@@ -25,6 +26,35 @@
 
 .inputStyle{
     font-size: 1.5rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     border-radius: 2rem;
+}
+
+.textAreaContainer{
+    margin-top: 5vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.textAreaStyle{
+    padding: 1rem 1rem;
+    width: 30%;
+}
+
+.nextButton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.nextButtonText{
+    padding: 1vh 3vw;
+    background-color: #40513b;
+    cursor: pointer;
+    border-radius: 2rem;
+    text-align: center;
 }
