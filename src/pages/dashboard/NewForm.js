@@ -4,54 +4,18 @@ import Button from "../../../src/components/Button";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-const formFields = [
-  {
-    question: "FBO Name",
-    inputType: "text",
-    id: "restaurantName",
-    placeholder: 'Enter the restaurant name'
-  },
-  {
-    question:"Auditor Name",
-    inputType: "text",
-    id:"auditorName",
-    placeholder: "Enter the auditor name"
-  },
-  {
-    question:"FBO's representative",
-    inputType:"text",
-    id:"fboRepresentativeName",
-    placeholder:"Representative name"
-  },
-  {
-    question: "Address",
-    inputType: "text",
-    id: "address",
-    placeholder: 'Enter the address'
-  },
-  {
-    question: "FBO License No",
-    inputType: "number",
-    id: "licenseNo",
-    placeholder: 'Enter License No'
-  },
-  {
-    question: "Date",
-    inputType: "number",
-    id: "dateOfAudit",
-    placeholder: 'Date of Audit'
-  },
-];
-
-const NewForm = () => {
+export default function NewForm() {
   const [formData, setFormData] = useState({
     restaurantName: "",
-    auditorName:"",
-    fboRepresentativeName:"",
+    auditorName: "",
+    fboRepresentativeName: "",
     address: "",
     licenseNo: null,
     dateOfAudit: null,
   });
+
+  const [inputValue, setInputValue] = useState("");
+  const [inputTypeValue, setInputTypeValue] = useState("");
 
   const navigate = useNavigate();
 
@@ -64,38 +28,38 @@ const NewForm = () => {
     });
   };
 
-  const onClickBackButton = () => {
-    navigate("/user-dashboard");
+  const handleInput = (e) => {
+    const { value: input } = e.target;
+    setInputValue(input);
+  };
+
+  const handleInputType = (e) => {
+    const { value: input } = e.target;
+    setInputTypeValue(input);
   };
 
   return (
     <div className={styles.wrapper}>
-      {/* <BsArrowLeftCircleFill onClick={onClickBackButton} />
-      <div className={styles.title}>Create A New Entry</div>
-      <div className={styles.formBody}>
-        <div className={styles.formQuestions}>
-          {formFields.map((field) => {
-            return <div className={styles.formQuestion}>{field.question}</div>;
-          })}
-        </div>
-        <div className={styles.formInputs}>
-          {formFields.map((field) => {
-            return (
-              <div className={styles.formInput}>
-                <input
-                  type={field.inputType}
-                  value={formData[`${field.id}`]}
-                  placeholder={field.placeholder}
-                  onChange={(e) => handleFormInput(e, field.id)}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div> */}
-      New Form Here! 
+      <div className={styles.formPrompt}>Enter a Question</div>
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInput}
+          className={styles.inputStyle}
+        />
+      </div>
+
+      <div className={styles.formPrompt}>Enter the Response Type</div>
+      <div>
+        <input
+          type="text"
+          value={inputTypeValue}
+          onChange={handleInputType}
+          className={styles.inputStyle}
+        />
+      </div>
+      <button>Add Another Prompt</button>
     </div>
   );
-};
-
-export default NewForm;
+}

@@ -3,8 +3,16 @@ import styles from "./styles/forms.module.css";
 import Icons from "../../themes/Icons";
 import CardForEntries from "../../components/Card";
 import { createdFormsData } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 function Forms(props) {
+
+  const navigate = useNavigate();
+
+  const onClickCreateForm = () => {
+    navigate('/new-form')
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.dashboardWrapper}>
@@ -17,7 +25,7 @@ function Forms(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
-              <div className={styles.newEntryText}>Create Form</div>
+              <div className={styles.newEntryText} onClick={() => onClickCreateForm()}>Create Form</div>
             </div>
           </div>
         </div>

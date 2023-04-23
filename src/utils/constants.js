@@ -17,8 +17,6 @@ export const NavbarItems = [
   },
 ];
 
-
-
 export const gradingData = [
   { grade: "A+", range: "95-106", category: "Compliance - Exemplar" },
   { grade: "A", range: "83-94", category: "Compliance - Satisfactory" },
@@ -95,67 +93,67 @@ export const newEntryFormData = [
     title: "Floors are non-slippery & slopped appropriately",
     inputType: "number",
   },
-  {
-    id: 6,
-    title:
-      "Windows are kept closed & fitted with insect proof screen when opening to an external environment",
-    inputType: "number",
-  },
-  {
-    id: 7,
-    title: "Doors are close fitted at all ends to avoid entry of pests.",
-    inputType: "number",
-  },
+  // ,
+  // {
+  //   id: 6,
+  //   title:
+  //     "Windows are kept closed & fitted with insect proof screen when opening to an external environment",
+  //   inputType: "number",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Doors are close fitted at all ends to avoid entry of pests.",
+  //   inputType: "number",
+  // },
 ];
 
 export const entryData = [
   {
-    id:1,
+    id: 1,
     title: "Ajekar Milk Producers Co Operative Society",
     date: "02/03/2023",
   },
   {
-    id:2,
+    id: 2,
     title: "Bijekar Milk Producers Co Operative Society",
     date: "03/04/2023",
   },
   {
-    id:3,
+    id: 3,
     title: "Rijekar Milk Producers Co Operative Society",
     date: "26/04/2023",
   },
   {
-    id:1,
+    id: 1,
     title: "Ajekar Milk Producers Co Operative Society",
     date: "02/03/2023",
   },
   {
-    id:2,
+    id: 2,
     title: "Bijekar Milk Producers Co Operative Society",
     date: "03/04/2023",
   },
   {
-    id:3,
+    id: 3,
     title: "Rijekar Milk Producers Co Operative Society",
     date: "26/04/2023",
   },
 ];
 
-
 export const createdFormsData = [
   {
-    id:1,
+    id: 1,
     title: "Dairy Form",
     date: "02/03/2023",
   },
   {
-    id:2,
+    id: 2,
     title: "Fast Food Form",
     date: "03/04/2023",
   },
   {
-    id:3,
+    id: 3,
     title: "Normal Food Outlet Form",
     date: "26/04/2023",
   },
-]
+];

@@ -27,7 +27,6 @@ export default function Navbar(props) {
   const signOutUser = useSignOut();
 
   const onClickNavBarItem = (item) => {
-    console.log("jndjnj", item);
     navigate(item.path);
   };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles/formInput.module.css";
 import Button from "../../components/Button";
+import { scoreData } from "../../utils/constants";
 
 const PromptComponent = (props) => {
   const {
@@ -94,15 +95,44 @@ export default function FormInput({ data }) {
   const [idx, setCurrentIdx] = useState(0);
   const [formValues, setFormValues] = useState([]);
   const [showTable, setShowTable] = useState(false);
+  const [responseSum,setResponseSum] = useState(0);
   const handleSubmit = () => {
     setShowTable(true);
     console.log(formValues);
+    let sum = 0;
+    formValues.forEach((d) => {
+      sum += parseInt(d.ans);
+    })
+    setResponseSum(sum);
   };
 
   return (
     <div className={styles.container}>
       {showTable ? (
-        <div>Submitted</div>
+        <div>
+          <div className={styles.tableStyle}>
+            <table>
+              <tr>
+                <th>S.No</th>
+                <th>Audit Areas</th>
+                <th>Max Score</th>
+                <th>Obtained Score</th>
+              </tr>
+              {formValues.map((d, i) => {
+               
+                return (
+                  <tr>
+                    <td>{i + 1}</td>
+                    <td>{scoreData[i].auditAreas}</td>
+                    <td>{scoreData[i].maxScore}</td>
+                    <td>{d.ans}</td>
+                  </tr>
+                );
+              })}
+            </table>
+            <p>TOTAL SCORE : {responseSum}</p>
+          </div>
+        </div>
       ) : (
         <PromptComponent
           setCurrentIdx={setCurrentIdx}
