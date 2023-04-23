@@ -38,8 +38,8 @@ query getFormDetails($formId:ID!) {
 const GET_USER_DETAILS = gql`
 query getUserDetails($email:String!){
   getUserDetails(email:$email){
-    email,
-    name,
+    email
+    name
     role
   }
 }
