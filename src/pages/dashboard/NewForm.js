@@ -5,61 +5,96 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 export default function NewForm() {
-  const [formData, setFormData] = useState({
-    restaurantName: "",
-    auditorName: "",
-    fboRepresentativeName: "",
-    address: "",
-    licenseNo: null,
-    dateOfAudit: null,
-  });
+  const [serviceList, setServiceList] = useState([
+    { service: "", inputType: "Character" },
+  ]);
 
-  const [inputValue, setInputValue] = useState("");
-  const [inputTypeValue, setInputTypeValue] = useState("");
-
-  const navigate = useNavigate();
-
-  const handleFormInput = (e, fieldName) => {
-    const { value } = e.target;
-    setFormData((prev) => {
-      let newObj = { ...prev };
-      newObj[`${fieldName}`] = value;
-      return newObj;
-    });
+  const handleServiceChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...serviceList];
+    list[index][name] = value;
+    setServiceList(list);
   };
 
-  const handleInput = (e) => {
-    const { value: input } = e.target;
-    setInputValue(input);
+  const handleInputTypeChange = (e, index) => {
+    console.log(e);
+    const { name, value } = e.target;
+    const list = [...serviceList];
+    list[index][name] = value;
+    setServiceList(list);
   };
 
-  const handleInputType = (e) => {
-    const { value: input } = e.target;
-    setInputTypeValue(input);
+  const handleServiceRemove = (index) => {
+    const list = [...serviceList];
+    list.splice(index, 1);
+    setServiceList(list);
+  };
+
+  const handleServiceAdd = () => {
+    setServiceList([...serviceList, { service: "", inputType: "Character" }]);
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.formPrompt}>Enter a Question</div>
-      <div className={styles.inputContainer}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={handleInput}
-          className={styles.inputStyle}
-        />
-      </div>
+    <form className="App" autoComplete="off">
+      <div className="form-field">
+        <label htmlFor="service">Create a Form</label>
+        {serviceList.map((singleService, index) => (
+          <div key={index} className="services">
+            <div className="first-division">
+              <input
+                name="service"
+                type="text"
+                id="service"
+                value={singleService.service}
+                onChange={(e) => handleServiceChange(e, index)}
+                placeholder="Enter a question"
+                required
+              />
 
-      <div className={styles.formPrompt}>Enter the Response Type</div>
-      <div>
-        <input
-          type="text"
-          value={inputTypeValue}
-          onChange={handleInputType}
-          className={styles.inputStyle}
-        />
+              <select
+                id="inputType"
+                name="inputType"
+                onChange={(e) => handleInputTypeChange(e, index)}
+              >
+                <option value="Character">Character</option>
+                <option value="Number">Number</option>
+              </select>
+              {serviceList.length - 1 === index && (
+                <button
+                  type="button"
+                  onClick={handleServiceAdd}
+                  className="add-btn"
+                >
+                  <span>Enter a prompt</span>
+                </button>
+              )}
+            </div>
+            <div className="second-division">
+              {serviceList.length !== 1 && (
+                <button
+                  type="button"
+                  onClick={() => handleServiceRemove(index)}
+                  className="remove-btn"
+                >
+                  <span>Remove</span>
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
-      <button>Add Another Prompt</button>
-    </div>
+      {/* <div className="output">
+        <h2>Output</h2>
+        {serviceList &&
+          serviceList.map((singleService, index) => (
+            <ul key={index}>
+              {singleService.service && singleService.inputType && (
+                <li>{singleService.service + ":" + singleService.inputType}</li>
+              )}
+            </ul>
+          ))}
+      </div> */}
+      <button>Submit</button>
+    </form>
   );
 }
