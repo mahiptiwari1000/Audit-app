@@ -9,11 +9,12 @@ const CardForEntries = ({
   id,
   keyword,
   createdBy = "Mahip",
+  onClick
 }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={()=>onClick(id)}>
       <div className={styles.dataWrapper}>
         <div className={styles.profilePic}>
           <img src={"https://picsum.photos/200"} className={styles.profileImage} alt="Reviewer" />

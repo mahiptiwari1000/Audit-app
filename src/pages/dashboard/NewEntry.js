@@ -74,7 +74,7 @@ const NewEntry = () => {
 
   return (
     <>
-      <FormInput data={newEntryFormData} />
+      <FormInput data={newEntryFormData} existingEntry={true} />
     </>
   );
 };

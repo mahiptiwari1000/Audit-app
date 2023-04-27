@@ -107,6 +107,60 @@ export const newEntryFormData = [
   // },
 ];
 
+export const entryFormData = [
+  {
+    id: 1,
+    title:
+      "Food establishment has updated FSSAI license and is displayed at a prominent location",
+    inputType: "number",
+    ans: "4",
+    additionalComments: ""
+  },
+  {
+    id: 2,
+    title:
+      "The design of food premises provides adequate working space; permit maintenance & cleaning to prevent the entry of dirt, dust & pests",
+    inputType: "number",
+    ans: 3,
+    additionalComments: "Not applicable"
+  },
+  {
+    id: 3,
+    title:
+      "The internal structure & fittings are made of non-toxic impermeable material.",
+    inputType: "number",
+    ans: 3,
+    additionalComments: ""
+  },
+  {
+    id: 4,
+    title:
+      "Walls, ceilings & doors are free from flaking paint or plaster, condensation & shedding particles",
+    inputType: "number",
+    ans: 3,
+    additionalComments: ""
+  },
+  {
+    id: 5,
+    title: "Floors are non-slippery & slopped appropriately",
+    inputType: "number",
+    ans: 3,
+    additionalComments: ""
+  },
+  // ,
+  // {
+  //   id: 6,
+  //   title:
+  //     "Windows are kept closed & fitted with insect proof screen when opening to an external environment",
+  //   inputType: "number",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Doors are close fitted at all ends to avoid entry of pests.",
+  //   inputType: "number",
+  // },
+];
+
 export const entryData = [
   {
     id: 1,

@@ -12,6 +12,9 @@ const PromptComponent = (props) => {
     maxIdx,
     idx,
     handleSubmit,
+    existingEntry,
+    ans,
+    additionalComments,
   } = props;
   const [inputValue, setInputValue] = useState("");
   const [comment, setComment] = useState("");
@@ -55,17 +58,19 @@ const PromptComponent = (props) => {
       <div className={styles.inputContainer}>
         <input
           type={inputType}
-          value={inputValue}
+          value={ans || inputValue}
           onChange={handleInput}
           className={styles.inputStyle}
+          disabled={!existingEntry}
         />
       </div>
       <div className={styles.textAreaContainer}>
         <textarea
           placeholder="Additional comments"
-          value={comment}
+          value={additionalComments || comment}
           onChange={handleCommentInput}
           className={styles.textAreaStyle}
+          disabled={!existingEntry}
         />
       </div>
       <div className={styles.nextButton}>
@@ -90,19 +95,19 @@ const PromptComponent = (props) => {
   );
 };
 
-export default function FormInput({ data }) {
+export default function FormInput({ data, existingEntry }) {
   //   const [inputValue, setInputValue] = useState("");
   const [idx, setCurrentIdx] = useState(0);
   const [formValues, setFormValues] = useState([]);
   const [showTable, setShowTable] = useState(false);
-  const [responseSum,setResponseSum] = useState(0);
+  const [responseSum, setResponseSum] = useState(0);
   const handleSubmit = () => {
     setShowTable(true);
     console.log(formValues);
     let sum = 0;
     formValues.forEach((d) => {
       sum += parseInt(d.ans);
-    })
+    });
     setResponseSum(sum);
   };
 
@@ -119,7 +124,6 @@ export default function FormInput({ data }) {
                 <th>Obtained Score</th>
               </tr>
               {formValues.map((d, i) => {
-               
                 return (
                   <tr>
                     <td>{i + 1}</td>
@@ -142,6 +146,9 @@ export default function FormInput({ data }) {
           maxIdx={data.length}
           setFormValues={setFormValues}
           handleSubmit={handleSubmit}
+          existingEntry={existingEntry}
+          ans={data[idx].ans}
+          additionalComments={data[idx].additionalComments}
         />
       )}
     </div>

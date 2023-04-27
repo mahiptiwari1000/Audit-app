@@ -30,6 +30,11 @@
   border-radius: 2rem;
 }
 
+.inputStyle:disabled{
+    background-color: white;
+    color: black;
+}
+
 .textAreaContainer {
   margin-top: 5vh;
   width: 100%;

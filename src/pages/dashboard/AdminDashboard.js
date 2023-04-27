@@ -33,6 +33,10 @@ const AdminDashboard = () => {
     navigate("/new-entry");
   };
 
+  const handleEntryClick = (id) => {
+      navigate(`/entry/${id}`)
+  };
+
   return (
     <div className={styles.wrapper}>
       <Navbar activeItem={"Home"} />
@@ -61,6 +65,7 @@ const AdminDashboard = () => {
                 description={d.description}
                 keyword={"entry"}
                 id={d.id}
+                onClick={handleEntryClick}
               />
             ))}
           </div>

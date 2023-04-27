@@ -7,6 +7,7 @@ import NewForm from "./pages/dashboard/NewForm";
 import Signup from "./pages/login/Sigup";
 import FormPage from "./pages/forms/FormsPage";
 import Team from "./pages/teams/Team";
+import Entry from "./pages/dashboard/Entry";
 import { AuthProvider } from "react-auth-kit";
 import { RequireAuth } from "react-auth-kit";
 import { client } from "./ApolloClient/client";
@@ -46,6 +47,14 @@ function App() {
                 element={
                   <RequireAuth loginPath="/">
                     <NewEntry />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/entry/:id"
+                element={
+                  <RequireAuth loginPath="/">
+                    <Entry />
                   </RequireAuth>
                 }
               />
