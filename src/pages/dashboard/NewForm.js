@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./styles/newEntryStyles.module.css";
 import Button from "../../../src/components/Button";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles/newFormStyles.module.css";
 
 export default function NewForm() {
   const [serviceList, setServiceList] = useState([
@@ -34,56 +34,55 @@ export default function NewForm() {
     setServiceList([...serviceList, { service: "", inputType: "Character" }]);
   };
 
-  return (
-    <form className="App" autoComplete="off">
-      <div className="form-field">
-        <label htmlFor="service">Create a Form</label>
-        {serviceList.map((singleService, index) => (
-          <div key={index} className="services">
-            <div className="first-division">
-              <input
-                name="service"
-                type="text"
-                id="service"
-                value={singleService.service}
-                onChange={(e) => handleServiceChange(e, index)}
-                placeholder="Enter a question"
-                required
-              />
+  const onClickSubmit = () => {};
 
-              <select
-                id="inputType"
-                name="inputType"
-                onChange={(e) => handleInputTypeChange(e, index)}
-              >
-                <option value="Character">Character</option>
-                <option value="Number">Number</option>
-              </select>
-              {serviceList.length - 1 === index && (
-                <button
-                  type="button"
-                  onClick={handleServiceAdd}
-                  className="add-btn"
+  return (
+    <div className={styles.wrapper}>
+      <form className="App" autoComplete="off">
+        <div className="form-field">
+          <div className={styles.title}>Create a Form</div>
+          {serviceList.map((singleService, index) => (
+            <div key={index} className="services">
+              <div className="first-division">
+                <input
+                  name="service"
+                  type="text"
+                  id="service"
+                  value={singleService.service}
+                  onChange={(e) => handleServiceChange(e, index)}
+                  placeholder="Enter a question"
+                  required
+                />
+
+                <select
+                  id="inputType"
+                  name="inputType"
+                  onChange={(e) => handleInputTypeChange(e, index)}
                 >
-                  <span>Enter a prompt</span>
-                </button>
-              )}
+                  <option value="Character">Character</option>
+                  <option value="Text">Text</option>
+                </select>
+                {serviceList.length - 1 === index && (
+                  <div className={styles.btnStyle}>
+                    <Button
+                      title={"Add a New Question"}
+                      onClick={(e) => handleServiceAdd(e)}
+                    />
+                  </div>
+                )}
+              </div>
+              <div className={styles.btnStyle}>
+                {serviceList.length !== 1 && (
+                  <Button
+                    title={"Remove"}
+                    onClick={(e) => handleServiceRemove(e)}
+                  />
+                )}
+              </div>
             </div>
-            <div className="second-division">
-              {serviceList.length !== 1 && (
-                <button
-                  type="button"
-                  onClick={() => handleServiceRemove(index)}
-                  className="remove-btn"
-                >
-                  <span>Remove</span>
-                </button>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* <div className="output">
+          ))}
+        </div>
+        {/* <div className="output">
         <h2>Output</h2>
         {serviceList &&
           serviceList.map((singleService, index) => (
@@ -94,7 +93,8 @@ export default function NewForm() {
             </ul>
           ))}
       </div> */}
-      <button>Submit</button>
-    </form>
+        <Button title={"Submit"} onClick={(e) => onClickSubmit(e)} />
+      </form>
+    </div>
   );
 }

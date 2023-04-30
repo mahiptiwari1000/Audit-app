@@ -34,7 +34,7 @@ const AdminDashboard = () => {
   };
 
   const handleEntryClick = (id) => {
-      navigate(`/entry/${id}`)
+      navigate(`/admin-dashboard/entry/${id}`)
   };
 
   return (

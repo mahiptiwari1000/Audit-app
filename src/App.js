@@ -51,18 +51,10 @@ function App() {
                 }
               />
               <Route
-                path="/entry/:id"
-                element={
-                  <RequireAuth loginPath="/">
-                    <Entry />
-                  </RequireAuth>
-                }
-              />
-              <Route
                 path="/admin-dashboard/entry/:id"
                 element={
                   <RequireAuth loginPath="/">
-                    <Signup />
+                    <Entry />
                   </RequireAuth>
                 }
               />

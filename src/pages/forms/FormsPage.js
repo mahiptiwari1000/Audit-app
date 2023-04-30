@@ -6,11 +6,14 @@ import { createdFormsData } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 function Forms(props) {
-
   const navigate = useNavigate();
 
   const onClickCreateForm = () => {
-    navigate('/new-form')
+    navigate("/new-form");
+  };
+
+  const handleFormListItemClick = (id) => {
+    navigate(`/admin-dashboard/form/${id}`)
   }
 
   return (
@@ -25,22 +28,30 @@ function Forms(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
-              <div className={styles.newEntryText} onClick={() => onClickCreateForm()}>Create Form</div>
+              <div
+                className={styles.newEntryText}
+                onClick={() => onClickCreateForm()}
+              >
+                Create Form
+              </div>
             </div>
           </div>
         </div>
         <div className={styles.bodySection}>
           <p>Existing Forms:</p>
-          {createdFormsData.length ? createdFormsData.map((d) => (
-            <CardForEntries
-              key={d.title}
-              title={d.title}
-              date={d.date}
-              description={d.description}
-              keyword={"forms"}
-              id={d.id}
-            />
-          )) : 'No Forms Yet!!!'}
+          {createdFormsData.length
+            ? createdFormsData.map((d) => (
+                <CardForEntries
+                  key={d.title}
+                  title={d.title}
+                  date={d.date}
+                  description={d.description}
+                  keyword={"forms"}
+                  id={d.id}
+                  onClick={handleFormListItemClick}
+                />
+              ))
+            : "No Forms Yet!!!"}
         </div>
       </div>
     </div>
