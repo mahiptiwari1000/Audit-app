@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Audit-app/static/css/main.d655ab68.css",
+    "main.js": "/Audit-app/static/js/main.45284888.js",
+    "static/js/787.a86f3764.chunk.js": "/Audit-app/static/js/787.a86f3764.chunk.js",
+    "static/media/search-icon.png": "/Audit-app/static/media/search-icon.c6544d3156a8bde3d076.png",
+    "static/media/logo-white.png": "/Audit-app/static/media/logo-white.6943bba978b83a26eeb7.png",
+    "index.html": "/Audit-app/index.html",
+    "main.d655ab68.css.map": "/Audit-app/static/css/main.d655ab68.css.map",
+    "main.45284888.js.map": "/Audit-app/static/js/main.45284888.js.map",
+    "787.a86f3764.chunk.js.map": "/Audit-app/static/js/787.a86f3764.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d655ab68.css",
+    "static/js/main.45284888.js"
+  ]
+}
