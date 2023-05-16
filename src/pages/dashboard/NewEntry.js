@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styles from "./styles/newEntryStyles.module.css";
-import Button from "../../../src/components/Button";
+import Button from "@mui/material/Button";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { gradingData } from "../../utils/constants";
 import { scoreData } from "../../utils/constants";
 import { newEntryFormData } from "../../utils/constants";
 import FormInput from "../forms/FormInput";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import BackButton from "../../components/BackButton";
 
 const formFields = [
   {
@@ -74,6 +76,7 @@ const NewEntry = () => {
 
   return (
     <>
+      <BackButton />
       <FormInput data={newEntryFormData} existingEntry={true} />
     </>
   );

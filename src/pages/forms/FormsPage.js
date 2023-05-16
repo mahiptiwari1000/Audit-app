@@ -4,6 +4,7 @@ import Icons from "../../themes/Icons";
 import CardForEntries from "../../components/Card";
 import { createdFormsData } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../../components/BackButton";
 
 function Forms(props) {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ function Forms(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
+              <BackButton/>
               <div
                 className={styles.newEntryText}
                 onClick={() => onClickCreateForm()}

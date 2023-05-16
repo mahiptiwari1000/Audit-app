@@ -6,6 +6,7 @@ import { useSnackbar } from "../../components/useSnackBar";
 import { Snackbar } from "../../components/SnackBar";
 import firebase from "firebase/app";
 import "firebase/database";
+import BackButton from "../../components/BackButton";
 
 function Team(props) {
   const [isOpenAddUserModal, setIsOpenAddUserModal] = useState(false);
@@ -40,6 +41,7 @@ function Team(props) {
           </div>
           <div className={styles.subHeaderSection}>
             <div className={styles.newEntry}>
+              <BackButton/>
               <div className={styles.newEntryText} onClick={onClickAddNewUser}>
                 Add User
               </div>

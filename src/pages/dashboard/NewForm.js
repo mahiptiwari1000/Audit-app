@@ -3,6 +3,7 @@ import Button from "../../../src/components/Button";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/newFormStyles.module.css";
+import BackButton from "../../components/BackButton";
 
 export default function NewForm() {
   const [serviceList, setServiceList] = useState([
@@ -40,6 +41,7 @@ export default function NewForm() {
     <div className={styles.wrapper}>
       <form className="App" autoComplete="off">
         <div className="form-field">
+          <BackButton />
           <div className={styles.title}>Create a Form</div>
           {serviceList.map((singleService, index) => (
             <div key={index} className="services">

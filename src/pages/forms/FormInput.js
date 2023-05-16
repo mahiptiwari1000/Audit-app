@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles/formInput.module.css";
 import Button from "../../components/Button";
 import { scoreData } from "../../utils/constants";
+import BackButton from "../../components/BackButton";
 
 const PromptComponent = (props) => {
   const {
@@ -54,6 +55,7 @@ const PromptComponent = (props) => {
 
   return (
     <div className={styles.wrapper}>
+      <BackButton />
       <div className={styles.formPrompt}>{prompt}</div>
       <div className={styles.inputContainer}>
         <input
@@ -116,6 +118,7 @@ export default function FormInput({ data, existingEntry }) {
       {showTable ? (
         <div>
           <div className={styles.tableStyle}>
+            <BackButton />
             <table>
               <tr>
                 <th>S.No</th>
