@@ -164,32 +164,32 @@ export const entryFormData = [
 export const entryData = [
   {
     id: 1,
-    title: "Ajekar Milk Producers Co Operative Society",
+    name: "Ajekar Milk Producers Co Operative Society",
     date: "02/03/2023",
   },
   {
     id: 2,
-    title: "Bijekar Milk Producers Co Operative Society",
+    name: "Bijekar Milk Producers Co Operative Society",
     date: "03/04/2023",
   },
   {
     id: 3,
-    title: "Rijekar Milk Producers Co Operative Society",
+    name: "Rijekar Milk Producers Co Operative Society",
     date: "26/04/2023",
   },
   {
-    id: 1,
-    title: "Ajekar Milk Producers Co Operative Society",
+    id: 4,
+    name: "ABC Milk Producers Co Operative Society",
     date: "02/03/2023",
   },
   {
-    id: 2,
-    title: "Bijekar Milk Producers Co Operative Society",
+    id: 5,
+    name: "XYZ Milk Producers Co Operative Society",
     date: "03/04/2023",
   },
   {
-    id: 3,
-    title: "Rijekar Milk Producers Co Operative Society",
+    id: 6,
+    name: "Amul Milk Producers Co Operative Society",
     date: "26/04/2023",
   },
 ];
