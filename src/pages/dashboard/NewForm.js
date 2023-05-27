@@ -62,7 +62,7 @@ export default function NewForm() {
                   onChange={(e) => handleInputTypeChange(e, index)}
                 >
                   <option value="Character">Character</option>
-                  <option value="Text">Text</option>
+                  <option value="Number">Number</option>
                 </select>
                 {serviceList.length - 1 === index && (
                   <div className={styles.btnStyle}>

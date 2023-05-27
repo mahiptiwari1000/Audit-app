@@ -12,24 +12,25 @@ import { entryData } from "../../utils/constants";
 import CardForEntries from "../../components/Card";
 import { useLazyQuery } from "@apollo/client";
 import queries from "../../graphql/queries";
-import * as FileSaver from 'file-saver';
-import XLSX from 'sheetjs-style';
+import * as FileSaver from "file-saver";
+import XLSX from "sheetjs-style";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [getForms, { data: formData, error: formErr, loading: formLoading }] =
     useLazyQuery(queries.GET_ALL_FORMS);
 
-    const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset-UTF-8';
-    const fileExtension = '.xlsx';
-  
-    const exportToExcel = async () => {
-      const ws = XLSX.utils.json_to_sheet(entryData);
-      const wb = {Sheets: {'data': ws},SheetNames: ['data']};
-      const excelBuffer = XLSX.write(wb,{bookType:'xlsx',type:'array'});
-      const data = new Blob([excelBuffer],{type : fileType});
-      FileSaver.saveAs(data,'Excel-Entry' + fileExtension);
-    }  
+  const fileType =
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset-UTF-8";
+  const fileExtension = ".xlsx";
+
+  const exportToExcel = async () => {
+    const ws = XLSX.utils.json_to_sheet(entryData);
+    const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
+    const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+    const data = new Blob([excelBuffer], { type: fileType });
+    FileSaver.saveAs(data, "Excel-Entry" + fileExtension);
+  };
 
   useEffect(() => {
     getForms();
@@ -47,7 +48,7 @@ const AdminDashboard = () => {
   };
 
   const handleEntryClick = (id) => {
-      navigate(`/admin-dashboard/entry/${id}`)
+    navigate(`/admin-dashboard/entry/${id}`);
   };
 
   return (
@@ -72,19 +73,21 @@ const AdminDashboard = () => {
           <div className={styles.cardsContainer}>
             {entryData.map((d) => (
               <>
-              <CardForEntries
-                key={d.name}
-                title={d.name}
-                date={d.date}
-                description={d.description}
-                keyword={"entry"}
-                id={d.id}
-                onClick={handleEntryClick}
-              />
-            </>
+                <CardForEntries
+                  key={d.name}
+                  title={d.name}
+                  date={d.date}
+                  description={d.description}
+                  keyword={"entry"}
+                  id={d.id}
+                  onClick={handleEntryClick}
+                />
+              </>
             ))}
-                    <Button title={"Export Data"} onClick={(e) => exportToExcel('Excel-Entry')} />
-
+            <Button
+              title={"Export Data"}
+              onClick={(e) => exportToExcel("Excel-Entry")}
+            />
           </div>
         </div>
       </div>

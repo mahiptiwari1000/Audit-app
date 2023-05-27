@@ -66,6 +66,7 @@
 
 .subHeaderSection {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .icon img {

@@ -76,7 +76,6 @@ const NewEntry = () => {
 
   return (
     <>
-      <BackButton />
       <FormInput data={newEntryFormData} existingEntry={true} />
     </>
   );

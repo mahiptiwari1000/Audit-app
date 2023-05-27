@@ -5,6 +5,7 @@ import CardForEntries from "../../components/Card";
 import { createdFormsData } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../components/BackButton";
+import Button from "../../components/Button";
 
 function Forms(props) {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ function Forms(props) {
   };
 
   const handleFormListItemClick = (id) => {
-    navigate(`/admin-dashboard/form/${id}`)
-  }
+    navigate(`/admin-dashboard/form/${id}`);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -28,14 +29,19 @@ function Forms(props) {
             </div>
           </div>
           <div className={styles.subHeaderSection}>
-            <div className={styles.newEntry}>
-              <BackButton/>
+            <div style={{"margin-bottom":"16px"}}>
+              <BackButton />
+            </div>
+            {/* <div className={styles.newEntry}>
               <div
                 className={styles.newEntryText}
                 onClick={() => onClickCreateForm()}
               >
                 Create Form
               </div>
+            </div> */}
+            <div style={{"margin-left":"16px","margin-bottom":"16px"}}>
+              <Button title={"Create Form"} onClick={onClickCreateForm} />
             </div>
           </div>
         </div>
